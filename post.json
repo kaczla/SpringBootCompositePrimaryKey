@@ -1,0 +1,9 @@
+{
+  "type": "super",
+  "login": "login",
+  "email": "login@mail.com",
+  "info": {
+    "name": "Name",
+    "surname": "Surname"
+  }
+}
