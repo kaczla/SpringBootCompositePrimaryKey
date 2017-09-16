@@ -1,7 +1,7 @@
 
-## SpringBootCompositeKey
+## SpringBootCompositePrimaryKey
 
-**SpringBootCompositeKey** is simple *spring boot* project creating REST API with composite primary key in model.
+**SpringBootCompositePrimaryKey** is simple *spring boot* project creating REST API with composite primary key in model.
 
 #### Problem
 
@@ -15,7 +15,7 @@ Problem with sharing/mapping generated id in composite primary key while using *
 
 `GET localhost:8080/api/user?id=1&type=super`
 
-`curl -H 'Accept: application/json' 'localhost:8080/api/user?id=1&amp;type=super'`
+`curl -H 'Accept: application/json' 'localhost:8080/api/user?id=1&type=super'`
 
 **POST** *NOT WORKING*
 
@@ -30,7 +30,7 @@ with [body json](post.json) and header `Content-Type: application/json`
 
 `GET localhost:8080/api/em/user`
 
-`curl -H 'Accept: application/json' 'localhost:8080/api/em/user?id=1&amp;type=super'`
+`curl -H 'Accept: application/json' 'localhost:8080/api/em/user?id=1&type=super'`
 
 **POST**
 
