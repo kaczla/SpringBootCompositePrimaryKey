@@ -1,10 +1,17 @@
 package pl.kaczla.app.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Embeddable
 public class UserPK implements Serializable {
 
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ID")
+    @SequenceGenerator(name = "SEQ_ID", sequenceName = "SEQ_ID", allocationSize = 1)
+    @Column(name = "ID", nullable = false)
     private Long id;
+
+    @Column(name = "TYPE", nullable = false)
     private String type;
 
     public UserPK() {

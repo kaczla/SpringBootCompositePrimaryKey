@@ -5,7 +5,7 @@
 
 #### Problem
 
-Problem with sharing/mapping generated id in composite primary key while using *spring CRUDRepository* (using *EntityManager* it works fine).
+Problem with sharing/mapping and generating id in composite primary key (with *@EmbeddedId* annotation) while using *spring CRUDRepository* (using *EntityManager* it works fine).
 
 #### Example with using:
 
@@ -32,7 +32,7 @@ with [body json](post.json) and header `Content-Type: application/json`
 
 `curl -H 'Accept: application/json' 'localhost:8080/api/em/user?id=1&amp;type=super'`
 
-**POST**
+**POST** *NOT WORKING*
 
 `POST localhost:8080/api/em/user`
 with [body json](post.json) and header `Content-Type: application/json`

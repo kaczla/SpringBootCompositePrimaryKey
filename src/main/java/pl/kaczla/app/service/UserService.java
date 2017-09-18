@@ -17,7 +17,7 @@ public class UserService {
             return null;
         }
         System.out.println(key.toString());
-        return repository.findByIdAndAndType(key.getId(), key.getType());
+        return repository.findByUserPK(key);
     }
 
     public Iterable<User> findAll() {

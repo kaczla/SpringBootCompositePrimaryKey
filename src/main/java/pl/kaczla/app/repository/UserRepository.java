@@ -8,5 +8,5 @@ import pl.kaczla.app.model.UserPK;
 @Repository
 public interface UserRepository extends CrudRepository<User, UserPK> {
 
-    User findByIdAndAndType(Long id, String type);
+    User findByUserPK(UserPK key);
 }

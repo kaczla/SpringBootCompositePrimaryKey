@@ -3,53 +3,34 @@ package pl.kaczla.app.model;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 
 @Entity
 @Table(name = "USER")
-@IdClass(UserPK.class)
 public class User implements Serializable {
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
     @JsonManagedReference
     private UserInfo info;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ID")
-    @SequenceGenerator(name = "SEQ_ID", sequenceName = "SEQ_ID", allocationSize = 1)
-    @NotNull
-    @Column(name = "ID")
-    private Long id;
-    @Id
-    @NotNull
-    @Column(name = "TYPE")
-    private String type;
-    @NotNull
-    @Column(name = "LOGIN")
+    @EmbeddedId
+    private UserPK userPK;
+
+    @Column(name = "LOGIN", nullable = false)
     private String login;
-    @NotNull
-    @Column(name = "EMAIL")
+    @Column(name = "EMAIL", nullable = false)
     private String email;
 
     public User() {
     }
 
-    public Long getId() {
-        return id;
+    public UserPK getUserPK() {
+        return userPK;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public void setUserPK(UserPK userPK) {
+        this.userPK = userPK;
     }
 
     public String getLogin() {
@@ -79,11 +60,10 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", type='" + type + '\'' +
+                "info=" + info +
+                ", id=" + userPK +
                 ", login='" + login + '\'' +
                 ", email='" + email + '\'' +
-                ", info=" + info +
                 '}';
     }
 }

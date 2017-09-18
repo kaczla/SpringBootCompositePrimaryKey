@@ -1,5 +1,7 @@
 {
-  "type": "super",
+  "userPK": {
+    "type": "super"
+  },
   "login": "login",
   "email": "login@mail.com",
   "info": {
