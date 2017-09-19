@@ -9,7 +9,6 @@ import java.io.Serializable;
 @Table(name = "USER_INFO")
 public class UserInfo implements Serializable {
 
-    @Id
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumns({
             @JoinColumn(name = "id", referencedColumnName = "id"),
@@ -19,12 +18,23 @@ public class UserInfo implements Serializable {
     @MapsId
     private User user;
 
+    @EmbeddedId
+    private UserPK userPK;
+
     @Column(name = "NAME")
     private String name;
     @Column(name = "SURNAME")
     private String surname;
 
     public UserInfo() {
+    }
+
+    public UserPK getUserPK() {
+        return userPK;
+    }
+
+    public void setUserPK(UserPK userPK) {
+        this.userPK = userPK;
     }
 
     public String getName() {
@@ -54,7 +64,8 @@ public class UserInfo implements Serializable {
     @Override
     public String toString() {
         return "UserInfo{" +
-                "name='" + name + '\'' +
+                "userPK=" + userPK +
+                ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 '}';
     }
