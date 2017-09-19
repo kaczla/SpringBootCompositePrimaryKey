@@ -5,7 +5,7 @@
 
 #### Problem
 
-Problem with sharing/mapping and generating id in composite primary key (with *@EmbeddedId* annotation) while using *spring CRUDRepository* (using *EntityManager* it works fine).
+Problem with generating id in composite primary key (with *@EmbeddedId* annotation) while using *spring CRUDRepository* or *EntityManager* (sharing/mapping composite primary key works in both method).
 
 #### Example with using:
 
